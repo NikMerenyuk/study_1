@@ -1,0 +1,15 @@
+new folder
+git init
+git remote add study_1 git@github.com:NikMerenyuk/study_1.git
+git clone git@github.com:NikMerenyuk/study_1.git
+
+git pull
+git pull
+git pull
+
+
+git branch - посмотреть ветки
+git fetch --all - покажи на удаленном ветки
+git switch -c - переключает ветку
+
+# testline
