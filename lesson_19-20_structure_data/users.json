@@ -1,0 +1,14 @@
+[
+    {
+        "email": "test@gmail.com",
+        "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5"
+    },
+    {
+        "email": "test_2@mail.ru",
+        "password": "20f3765880a5c269b747e1e906054a4b4a3a991259f1e16b5dde4742cec2319a"
+    },
+    {
+        "email": "test_3@mail.ru",
+        "password": "24fd7e2735af185459f293eb8704789722c8e46ef86c880322577fe019bb829c"
+    }
+]
