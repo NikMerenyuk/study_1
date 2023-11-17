@@ -50,19 +50,24 @@ def edit_defs(choice):
             case "edit_data":
                 for i_data in dict_:
                     if country in i_data.keys() and capital in i_data.values():
-                        edit_choice = int(
-                            input("\n1-Изменить страну.\n" "2-Изменить столицу. -> "))
+                        edit_choice = int(input("\n1-Изменить страну.\n"
+                                                "2-Изменить столицу. -> "))
                         match edit_choice:
                             case 1:
-                                new_country = input("Введите новое название страны: ")
+                                new_country = str(input("Введите новое название страны: "))
                                 old_value = i_data.pop(country)
                                 dict_.setdefault(new_country, old_value)
+                                return
                             case 2:
-                                new_capital = input("Введите новое название столицы: ")
+                                new_capital = str(input("Введите новое название столицы: "))
                                 i_data[capital] = new_capital
+                                return
+                            case _:
+                                print('Неверный формат ввода.')
                 else:
                     print(f"Страны: {country} и столицы: {capital} нет в базе.")
                     return
+
 
 
 def serialization():
