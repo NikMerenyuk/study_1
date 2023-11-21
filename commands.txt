@@ -13,3 +13,7 @@ git fetch --all - покажи на удаленном ветки
 git switch -c - переключает ветку
 
 # testline
+
+
+# гит преподавателя
+https://github.com/netmin/codespaces_topcademy
