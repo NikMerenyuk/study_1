@@ -12,7 +12,7 @@ def add_new_data_in_file(data):
         db_data_dict = json.loads(file.read())
         country, capital = data[0], data[1]
         if country in db_data_dict.keys() and capital in db_data_dict.values():
-            print('This country and capital is alreadt in the db.')
+            print('This country and capital is already in the db.')
             return
         elif country in db_data_dict.keys():
             print('This country is already in the db.')
