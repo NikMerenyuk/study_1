@@ -55,10 +55,8 @@ def menu():
                                '0-Exit from program. -> '))
 
             if choice == 1:
-                if stack.push(stack.user_input()):
-                    print('String appended.')
-                else:
-                    print('Stack is full.')
+                stack.push(stack.user_input())
+                print('String appended.')
 
             elif choice == 2:
                 if not stack.pop():
@@ -73,17 +71,17 @@ def menu():
                 else:
                     print('\nStack isn\'t empty.')
 
-            elif choice == 6:
+            elif choice == 5:
                 stack.clear_stack()
                 print('\nStack clear.')
 
-            elif choice == 7:
+            elif choice == 6:
                 if stack.check_empty_stack():
                     print('\nStack is empty.')
                 else:
                     print(stack.get_upper_value_without_pop())
 
-            elif choice == 8:
+            elif choice == 7:
                 print(stack.get_stack())
 
             elif choice == 0:
