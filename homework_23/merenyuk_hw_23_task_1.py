@@ -1,5 +1,3 @@
-# 1) Добавить выбор: Если число в списке добавлять или нет.
-
 class UserList:
 
     def __init__(self):
@@ -11,13 +9,11 @@ class UserList:
             num_input = int(input('\nEnter nums: '))
             return num_input
         except ValueError:
-            print('Invalid input. Try again.')
+            return False
 
     def check_empty_list(self):
         if len(self.user_list) == 0:
             return True
-        else:
-            return False
 
     def check_num_in_list(self, num):
         if num in self.user_list:
@@ -33,7 +29,7 @@ class UserList:
                 for i_num in self.user_list:
                     if i_num == num:
                         self.user_list.remove(num)
-
+                        continue
         else:
             return False
 
@@ -58,21 +54,35 @@ def menu():
 
         if choice == '1':
             num = (user_list.user_input())
-
-
-
-            add_or_no = int(input(f'Num {num} is already in the list:'
-                                  '\n1-Add this num.'
-                                  '\n2-Don\'t add this num. -> '))
-            print(f'\nThe num {num} won\'t be added to the list.')
-
+            if not num:
+                print('Invalid input. Try again.')
+            else:
+                if user_list.check_num_in_list(num):
+                    add_or_not = input(f'\nNum {num} is already in the list:'
+                                       '\n1-Add this num.'
+                                       '\n2-Don\'t add this num. -> ')
+                    if add_or_not == '1':
+                        user_list.add_new_num_in_list(num)
+                        print('Num appended.')
+                    elif add_or_not == '2':
+                        print(f'\nThe num {num} won\'t be added to the list.')
+                        continue
+                    else:
+                        print('Invalid input. Try again.')
+                else:
+                    user_list.add_new_num_in_list(num)
+                    print('Num appended.')
 
         elif choice == '2':
             if user_list.check_empty_list():
                 print('\nList is empty.')
                 continue
             else:
-                user_list.del_all_entries_num()
+                num = user_list.user_input()
+                if user_list.del_all_entries_num(num):
+                    print(f'All entries num {num} been deleted.')
+                else:
+                    print(f'Number is not in the list.')
 
         elif choice == '3':
             print(f'\nYour list: {user_list.get_list()}')
@@ -92,7 +102,8 @@ def menu():
                 print('\nList is empty.')
                 continue
             else:
-                user_list.change_num(user_list.user_input())
+                if user_list.change_num(user_list.user_input()):
+                    print('\nAll entries')
 
         elif choice == 'q':
             print('\nThe program has finished work.')
