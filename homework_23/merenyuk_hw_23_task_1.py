@@ -6,7 +6,7 @@ class UserList:
     @staticmethod
     def user_input():
         try:
-            num_input = int(input('\nEnter nums: '))
+            num_input = int(input('\nEnter num: '))
             return num_input
         except ValueError:
             return False
@@ -36,8 +36,29 @@ class UserList:
     def get_list(self):
         return self.user_list
 
-    def change_num(self, new_num):
-        pass
+    def change_all_entries_num(self, num, new_num):
+        count = 0
+        if self.check_num_in_list(num):
+            while num in self.user_list:
+                for i_num in self.user_list:
+                    count += 1
+                    if i_num == num:
+                        self.user_list[count - 1] = new_num
+                        continue
+        else:
+            return False
+
+    def change_first_entries_num(self, num, new_num):
+        count = 0
+        if self.check_num_in_list(num):
+            while num in self.user_list:
+                for i_num in self.user_list:
+                    count += 1
+                    if i_num == num:
+                        self.user_list[count - 1] = new_num
+                        return True
+        else:
+            return False
 
 
 def menu():
@@ -102,8 +123,21 @@ def menu():
                 print('\nList is empty.')
                 continue
             else:
-                if user_list.change_num(user_list.user_input()):
-                    print('\nAll entries')
+                print('\nEnter num in the list.')
+                num = user_list.user_input()
+                print('\nEnter new num.')
+                new_num = user_list.user_input()
+                choice = input(f'\n1-Change all entries.'
+                               '\n2-Change first entries. -> ')
+                if choice == '1':
+                    if not user_list.change_all_entries_num(num, new_num):
+                        print(f'\nAll entries num {num} changed to {new_num}.')
+                elif choice == '2':
+                    if user_list.change_first_entries_num(num, new_num):
+                        print(f'\nFirst entries num {num} changed to {new_num}.')
+
+                else:
+                    print('Invalid input. Try again.')
 
         elif choice == 'q':
             print('\nThe program has finished work.')
