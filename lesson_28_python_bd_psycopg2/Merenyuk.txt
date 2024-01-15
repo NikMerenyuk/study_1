@@ -1,0 +1,42 @@
+# 1
+cursor.execute(
+    ''' SELECT airport_code, airport_name, city, coordinates FROM airports_data; '''
+)
+print(cursor.fetchall())
+
+
+# 2
+cursor.execute(
+    ''' SELECT aircraft_code, model FROM aircrafts_data WHERE range > 5000; '''
+)
+print(cursor.fetchall())
+
+# 3
+cursor.execute(
+    ''' SELECT passenger_name, contact_data FROM tickets WHERE passenger_name LIKE 'N%'; '''
+)
+print(cursor.fetchall())
+
+# 4
+cursor.execute(
+    ''' SELECT airport_code, airport_name FROM airports_data WHERE city->>'en' IN ('Moscow'); '''
+)
+print(cursor.fetchall())
+
+# 5
+cursor.execute(
+    ''' SELECT book_ref FROM tickets WHERE passenger_id = '8149 604011'; '''
+)
+print(cursor.fetchall())
+
+# 6
+cursor.execute(
+    ''' SELECT flight_id, flight_no FROM flights WHERE actual_departure > scheduled_departure ORDER BY flight_id DESCT LIMIT 5; '''
+)
+print(cursor.fetchall())
+
+# 7
+cursor.execute(
+    ''' SELECT COUNT(*) FROM airports_data; '''
+)
+print(cursor.fetchall())
